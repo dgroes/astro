@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer utilities {
+    .max-h-200px {
+      max-height: 200px;
+    }
+  }
