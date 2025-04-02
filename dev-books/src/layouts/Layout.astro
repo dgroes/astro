@@ -1,12 +1,18 @@
+---
+import { ClientRouter } from "astro:transitions";
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<ClientRouter/>
 	</head>
 	<body>
 		<div>
@@ -16,10 +22,12 @@
 </html>
 
 <style>
-	html,
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		color: #fff;
 	body {
 		@apply grid place-content-center;
-		background-color: #23272e;
 		color: rgb(226, 226, 219);
 	}
 
