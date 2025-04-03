@@ -2,7 +2,8 @@
 import AmazonLogo from "./AmazonLogo.astro"
 // import "../../src/styles/global.css";
 
-const SPAIN = 'ES'
+const SPAIN = 'EN'
+const CHILE = 'CL'
 
 const country = Astro.request.headers.get('X-Vercel-IP-Country') ?? 'ES'
 
@@ -13,6 +14,7 @@ const { buy } = Astro.props
 const url = buy[storeCountry]
 import "../styles/global.css"
 ---
+
 
 <a
   href={url}

@@ -1,0 +1,26 @@
+---
+import BuscaLibreLogo from "./BuscaLibreLogo.astro";
+
+const CHILE = "CL";
+const DEFAULT_COUNTRY = "CL"; // Chile por defecto
+
+const country = Astro.request.headers.get('X-Vercel-IP-Country')?.toUpperCase() ?? DEFAULT_COUNTRY;
+const isChile = country === CHILE;
+
+const { buy } = Astro.props;
+// Usamos buy.spanish (que ya contiene Busca Libre) para Chile
+const url = isChile ? buy.spanish : buy.usa; // Amazon para otros países
+---
+
+{isChile && (
+  <a
+    href={url}
+    title="Comprar en Busca Libre"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-balance inline-flex gap-2 items-center bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg border border-orange-800 transition duration-200 ease-in-out hover:scale-105 justify-center text-center"
+  >
+    Comprar en Busca Libre
+    <BuscaLibreLogo />
+  </a>
+)}
