@@ -1,0 +1,115 @@
+---
+const pageTitle = "Sobre mi 😎";
+
+const identity = {
+    firstName: "Diego",
+    country: "Chile",
+    occupation: "Ingeniero en Informática",
+    hobbies: ["Guitarra", "Leer", "Programar"],
+};
+
+const skills = [
+    "HTML",
+    "CSS",
+    "PHP",
+    "Laravel",
+    "Astro",
+    "JavaScript",
+    "Redacción de documentos",
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+// Colores
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+
+// Importar estios globales
+import '../assets/styles/global.css';
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+    </head>
+    <body>
+        <main class="container">
+            <a href="/">Inicio</a>
+            <a href="/about/">Sobre mi</a>
+            <a href="/blog">Blog</a>
+
+            <h1>{pageTitle}</h1>
+            <h2>... ¡y mi nuevo sitio Astro!</h2>
+
+            <h1>
+                Sobre mi
+                <h2>... ¡y mi nuevo sitio Astro!</h2>
+
+                <p>
+                    Estoy trabajando en el tutorial introductorio de Astro. Esta
+                    es la segunda página de mi sitio web, ¡y es la primera que
+                    he construido yo mismo!
+                </p>
+
+                <p>
+                    Este sitio se irá actualizando a medida que vaya completando
+                    más partes del tutorial, ¡así que no dejes de visitarlo para
+                    ver cómo va mi viaje!
+                </p>
+            </h1>
+
+            <p>He aquí algunos datos sobre mí:</p>
+            <ul>
+                <li>Me llamo {identity.firstName}.</li>
+                <li>
+                    Vivo en {identity.country} y trabajo como {
+                        identity.occupation
+                    }.
+                </li>
+                {
+                    identity.hobbies.length >= 2 && (
+                        <li>
+                            Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
+                            {identity.hobbies[1]}
+                        </li>
+                    )
+                }
+            </ul>
+            <p>Mis habilidades son:</p>
+            <ul>
+                {skills.map((skill) => <li class="skill">{skill}</li>)}
+            </ul>
+
+            <article>
+                {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+
+                {finished && <p>¡He terminado este tutorial!</p>}
+
+                {
+                    goal === 3 ? (
+                        <p>Mi objetivo es terminar en 3 días.</p>
+                    ) : (
+                        <p>Mi objetivo no son 3 días.</p>
+                    )
+                }
+            </article>
+        </main>
+    </body>
+    <style>
+        .skill {
+            color: var(--skillColor);
+            font-weight: bold;
+        }
+    </style>
+</html>
